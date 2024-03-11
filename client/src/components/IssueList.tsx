@@ -10,6 +10,8 @@ interface Issue {
 interface IssueListProps {
   // issues: Issue[];
   toggleRender: boolean;
+  currentIssue: Issue | undefined;
+  setCurrentIssue: (issue: Issue | undefined) => void;
 }
 
 const IssueList: React.FC<IssueListProps> = (props) => {
