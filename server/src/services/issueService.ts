@@ -17,6 +17,11 @@ function loadIssues(): Issue[] {
   }
 }
 
+// Read all issues
+export function getAllIssues(): Issue[] {
+  return loadIssues();
+}
+
 // Save issues to the file
 function saveIssues(issues: Issue[]) {
   const dataJSON = JSON.stringify(issues);
@@ -29,9 +34,25 @@ export function getIssueById(id: number): Issue | undefined {
   return loadedIssues.find((issue) => issue.id === id);
 }
 
+// Create Issue
+export function createIssue(newIssue: Issue): Issue {
+  let loadedIssues = loadIssues();
+  //   console.log("Loaded issues:", loadedIssues);
+  const maxId = loadedIssues.reduce(
+    (max, issue) => (issue.id > max ? issue.id : max),
+    0
+  );
+  newIssue.id = maxId + 1;
+  loadedIssues.push(newIssue);
+  saveIssues(loadedIssues);
+  return newIssue;
+}
+
 // Update Issue
 export function updateIssue(updatedIssue: Issue): Issue | undefined {
   let loadedIssues = loadIssues();
+  //   console.log("Loaded issues:", loadedIssues);
+  //   console.log("Updated issue:", updatedIssue);
   const index = loadedIssues.findIndex((issue) => issue.id === updatedIssue.id);
 
   if (index !== -1) {

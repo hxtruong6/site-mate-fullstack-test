@@ -3,7 +3,7 @@
 	"description": "site-mate-fullstack-exercise",
 	"version": "1.0.0",
 	"scripts": {
-		"start": "ts-node-dev src/app.ts --port 3001",
+		"start": "npx ts-node-dev app.ts --respawn --transpile-only --ignore-watch node_modules",
 		"build": "tsc"
 	},
 	"dependencies": {

@@ -1,24 +1,48 @@
 // src/routes.ts
 import express, { Request, Response } from "express";
 import { Issue } from "./types/issue.type";
+import {
+  createIssue,
+  deleteIssue,
+  getAllIssues,
+  getIssueById,
+  updateIssue,
+} from "./services/issueService";
 
 const router = express.Router();
 
 // GET /issues
 router.get("/issues", (req: Request, res: Response) => {
-  res.json(issues);
+  res.json({
+    data: getAllIssues(),
+  });
+});
+
+// GET /issues/:id
+router.get("/issues/:id", (req: Request, res: Response) => {
+  const issueId = parseInt(req.params.id);
+  const issue = getIssueById(issueId);
+
+  if (issue) {
+    res.json({
+      data: issue,
+    });
+  } else {
+    res.status(404).json({
+      message: "Issue not found",
+    });
+  }
 });
 
 // POST /issues
 router.post("/issues", (req: Request, res: Response) => {
   const newIssue = req.body as Issue;
-  newIssue.id = issues.length + 1; // Simple ID generation
-
-  issues.push(newIssue);
-  console.log("Issue created:", newIssue);
-  // TODO: Update issue in the database or json file
-
-  res.status(201).json(newIssue);
+  console.log("New issue created:", newIssue);
+  createIssue(newIssue);
+  res.json({
+    data: newIssue,
+    message: "Issue created",
+  });
 });
 
 // PUT /issues/:id
@@ -26,27 +50,35 @@ router.put("/issues/:id", (req: Request, res: Response) => {
   const issueId = parseInt(req.params.id);
   const updatedIssue = req.body as Issue;
 
-  const index = issues.findIndex((issue) => issue.id === issueId);
-  if (index !== -1) {
-    issues[index] = updatedIssue;
-    console.log("Issue updated:", updatedIssue);
-    res.json(updatedIssue);
+  if (issueId !== updatedIssue.id) {
+    res.status(400).json({
+      message: "ID in the request body does not match the ID in the URL",
+    });
+    return;
+  }
+
+  const issue = updateIssue(updatedIssue);
+  if (issue) {
+    res.json({
+      data: issue,
+      message: "Issue updated",
+    });
   } else {
-    res.status(404).send("Issue not found");
+    res.status(404).json({
+      message: "Issue not found",
+    });
   }
 });
 
 // DELETE /issues/:id
 router.delete("/issues/:id", (req: Request, res: Response) => {
   const issueId = parseInt(req.params.id);
-  const index = issues.findIndex((issue) => issue.id === issueId);
-
-  if (index !== -1) {
-    issues.splice(index, 1);
-    console.log("Issue deleted with ID:", issueId);
-    res.sendStatus(204);
+  if (deleteIssue(issueId)) {
+    res.status(204).send();
   } else {
-    res.status(404).send("Issue not found");
+    res.status(404).json({
+      message: "Issue not found",
+    });
   }
 });
 

@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "2e9de611-bd96-4a4e-af40-a0706d004566",
+		"name": "IssuesTrackingSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27088186"
+	},
+	"item": [
+		{
+			"name": "Get all issues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/issues",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"issues"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all issues",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/issues",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"issues"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "172"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ac-cn4Tw1oSocyvk/0QgM1b7fXYgF4\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 05:44:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Login failure\",\n            \"description\": \"Login failed for user 'test'.\"\n        },\n        {\n            \"id\": 2,\n            \"title\": \"Sign up failure\",\n            \"description\": \"Sign up failed for user 'test'.\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get issues by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/issues/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"issues",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/issues/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"issues",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5b-eAMpd8jut5mJbanrlMPBqrjpU3E\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 05:45:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"title\": \"Sign up failure\",\n        \"description\": \"Sign up failed for user 'test'.\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create new Issues",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Issue {{$randomNoun}}\",\n    \"description\": \"the issues is created at {{$timestamp}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/issues",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"issues"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create new issue",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Issue {{$randomNoun}}\",\n    \"description\": \"the issues is created at {{$timestamp}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/issues",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"issues"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "119"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"77-OdUyA4AHYV27C3/R5W8j1uow8WI\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 05:50:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"title\": \"Issue circuit\",\n        \"description\": \"the issues is created at 1710136208\",\n        \"id\": 4\n    },\n    \"message\": \"Issue created\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update issue by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"description\": \"the issues is created at 1710136208 -- {{$randomAdjective}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/issues/2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"issues",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update issue by ID",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"description\": \"the issues is created at 1710136208 -- {{$randomAdjective}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/issues/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"issues",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6c-8SwvcczYymFenLd/0cBmj4C12DM\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 05:52:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"description\": \"the issues is created at 1710136208 -- redundant\"\n    },\n    \"message\": \"Issue updated\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete issue by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/issues/3",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"issues",
+						"3"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Fail request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/issues/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"issues",
+								"4"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-LEeDEUKp7+yu/s1tzA9Rbwwa9BM\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 05:56:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Issue not found\"\n}"
+				},
+				{
+					"name": "Success request",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/issues/3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"issues",
+								"3"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 11 Mar 2024 05:56:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
