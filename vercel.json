@@ -2,10 +2,6 @@
     "version": 2,
     "builds": [
         {
-            "src": "client/build/index.html",
-            "use": "@vercel/static"
-        },
-        {
             "src": "server/dist/app.js",
             "use": "@vercel/node"
         }
