@@ -29,7 +29,7 @@ Clone this repository
 
 `pnpm run start`
 
-This will start the server, typically on port 3000 (<http://localhost:3000>).
+This will start the server, typically on port 3000 (<http://localhost:3001>).
 
 ## API Endpoints
 
