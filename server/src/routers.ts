@@ -1,6 +1,6 @@
 // src/routes.ts
 import express, { Request, Response } from "express";
-import issues, { Issue } from "./issues";
+import { Issue } from "./types/issue.type";
 
 const router = express.Router();
 
