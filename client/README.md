@@ -1,46 +1,32 @@
-# Getting Started with Create React App
+# Issue Tracking System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/664f1a7f-4d09-494d-8a74-f4254ea66d78" alt="drawing" style="width:600px;"/>
 
-## Available Scripts
+A simple issue tracking system built with React.js, TypeScript, and Axios.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+This project provides a user-friendly interface for managing issues within a project or team.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Create Issues: Add new issues with a title and description.
+- Read Issues: View a list of all existing issues.
+- Update Issues: Edit the title and description of existing issues.
+- Delete Issues: Remove issues that are no longer relevant.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React.js: Frontend JavaScript library for building user interfaces
+TypeScript: Adds static typing to JavaScript for improved code maintainability and safety.
+Axios: Promise-based HTTP client for making API requests.
 
-### `npm run build`
+## UI Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Allow to create new issue with title and description.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/bca6ab50-8344-490f-b930-bba7b54f7032" alt="drawing" style="width:600px;"/>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Allow to remove issue by clicking on the delete button.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/8fe38b57-2f18-4284-82e3-c839642d4a4c" alt="drawing" style="width:600px;"/>

@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+/* app.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto; /* Center content */
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue */
+}

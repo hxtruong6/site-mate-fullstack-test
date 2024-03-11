@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./IssueList.css";
 
 interface Issue {
   id: number;
@@ -30,14 +31,40 @@ const IssueList: React.FC<IssueListProps> = (props) => {
     fetchIssues();
   }, [props.toggleRender]);
 
+  const handleDelete = async (issueId: number) => {
+    try {
+      await axios.delete(`http://localhost:3001/issues/${issueId}`);
+      // Update issues state to remove the deleted issue
+      setIssues(issues.filter((issue: Issue) => issue.id !== issueId));
+    } catch (error) {
+      console.error("Error deleting issue:", error);
+    }
+  };
+
+  const handleEdit = (issue: Issue) => {
+    props.setCurrentIssue(issue); // Set the current issue to trigger edit mode
+  };
+
   return (
     <div>
       <h2>Issue List</h2>
       {issues?.length > 0 && (
-        <ul>
-          {issues.map((issue: any) => (
-            <li key={issue.id}>
-              {issue.title} - {issue.description}
+        <ul className="issue-list">
+          {issues.map((issue: Issue) => (
+            <li key={issue.id} className="issue-item">
+              <div className="issue-title">{issue.title}</div>
+              <div>{issue.description}</div>
+              <div className="issue-buttons">
+                <button className="edit" onClick={() => handleEdit(issue)}>
+                  Edit
+                </button>
+                <button
+                  className="delete"
+                  onClick={() => handleDelete(issue.id)}
+                >
+                  Delete
+                </button>
+              </div>
             </li>
           ))}
         </ul>

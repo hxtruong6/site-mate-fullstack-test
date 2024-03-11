@@ -1,0 +1,45 @@
+/* style.css or within a <style> tag */
+.issue-list {
+    background-color: #f5f5f5;
+    padding: 5px;
+    border-radius: 5px;
+
+    /* Display two grid */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.issue-item {
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.issue-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.issue-buttons {
+    margin-top: 10px;
+}
+
+.issue-buttons button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.issue-buttons button.edit {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+.issue-buttons button.delete {
+    background-color: #f44336; /* Red */
+    color: white;
+}

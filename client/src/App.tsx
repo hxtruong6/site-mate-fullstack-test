@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import IssueForm from "./components/IssueForm";
 import IssueList from "./components/IssueList";
 import { Issue } from "./utilities/types";
+import "./App.css";
 
 const App: React.FC = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
@@ -11,6 +12,11 @@ const App: React.FC = () => {
   );
   const toggleForm = () => {
     setShowForm(!showForm);
+  };
+
+  const setCurrentIssue_ = (issue: Issue | undefined) => {
+    setCurrentIssue(issue);
+    toggleForm();
   };
 
   return (
@@ -33,7 +39,7 @@ const App: React.FC = () => {
       <IssueList
         toggleRender={toggleRender}
         currentIssue={currentIssue}
-        setCurrentIssue={setCurrentIssue}
+        setCurrentIssue={setCurrentIssue_}
       />
     </div>
   );
