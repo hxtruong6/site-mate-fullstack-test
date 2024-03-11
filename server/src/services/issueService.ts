@@ -4,6 +4,43 @@ import path from "path";
 import { Issue } from "../types/issue.type";
 
 const dataFilePath = path.join(__dirname, "../database/issues.json"); // Adjust path if needed
+console.log("Data file path:", dataFilePath);
+// Check issues file exists and create some sample data if not
+export function initIssuesFile() {
+  if (!fs.existsSync(dataFilePath)) {
+    console.error("Issues file not found, creating a new one...");
+    const data = [
+      {
+        id: 1,
+        title: "Issue 1",
+        description: "This is the first issue",
+      },
+      {
+        id: 2,
+        title: "Issue 2",
+        description: "This is the second issue",
+      },
+      {
+        id: 3,
+        title: "Issue 3",
+        description: "This is the third issue",
+      },
+      {
+        id: 4,
+        title: "Issue 4",
+        description: "This is the fourth issue",
+      },
+    ];
+
+    // Create the file and write the sample data
+
+    fs.writeFileSync(dataFilePath, JSON.stringify(data));
+
+    console.log("Issues file created successfully");
+  } else {
+    console.log("Issues file exists");
+  }
+}
 
 // Load issues from the file
 function loadIssues(): Issue[] {
