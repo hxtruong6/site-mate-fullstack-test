@@ -9,7 +9,7 @@ const IssueForm: React.FC<IssueFormProps> = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: any) => {
     event.preventDefault();
 
     try {

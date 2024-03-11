@@ -8,7 +8,7 @@ interface Issue {
 }
 
 interface IssueListProps {
-  issues: Issue[];
+  // issues: Issue[];
 }
 
 const IssueList: React.FC<IssueListProps> = () => {

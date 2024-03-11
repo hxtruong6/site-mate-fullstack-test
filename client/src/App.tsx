@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import IssueList from "./IssueList";
-import IssueForm from "./IssueForm";
+import IssueForm from "./components/IssueForm";
+import IssueList from "./components/IssueList";
 
 const App: React.FC = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
       {showForm && <IssueForm />}
 
-      <IssueList issues={[]} />
+      <IssueList />
     </div>
   );
 };
