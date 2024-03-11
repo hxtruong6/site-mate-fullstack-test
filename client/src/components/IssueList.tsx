@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "./IssueList.css";
+import { BASE_URL } from "../utilities/config";
 
 interface Issue {
   id: number;
@@ -22,7 +23,7 @@ const IssueList: React.FC<IssueListProps> = (props) => {
   useEffect(() => {
     const fetchIssues = async () => {
       try {
-        const result = await axios.get("http://localhost:3001/issues"); // Replace with your server URL
+        const result = await axios.get(`${BASE_URL}/issues`); // Replace with your server URL
         setIssues(result.data.data);
       } catch (error) {
         console.error("Error fetching issues:", error);
@@ -35,7 +36,7 @@ const IssueList: React.FC<IssueListProps> = (props) => {
 
   const handleDelete = async (issueId: number) => {
     try {
-      await axios.delete(`http://localhost:3001/issues/${issueId}`);
+      await axios.delete(`${BASE_URL}/issues/${issueId}`);
       // Update issues state to remove the deleted issue
       setIssues(issues.filter((issue: Issue) => issue.id !== issueId));
       toast.success("Issue deleted successfully");

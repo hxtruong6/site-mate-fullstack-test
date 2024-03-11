@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "client/build/index.html",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "server/dist/index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "server/dist/index.js"
+        }
+    ]
+}

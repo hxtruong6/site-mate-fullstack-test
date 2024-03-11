@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "./IssueForm.css";
 import { Issue } from "../utilities/types";
+import { BASE_URL } from "../utilities/config";
 
 interface IssueFormProps {
   toggleRender: boolean;
@@ -21,7 +22,7 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
 
     try {
       if (issueId) {
-        await axios.put(`http://localhost:3001/issues/${issueId}`, {
+        await axios.put(`${BASE_URL}/issues/${issueId}`, {
           id: issueId,
           title,
           description,
@@ -29,7 +30,7 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
 
         toast.success("Issue updated successfully");
       } else {
-        const response = await axios.post("http://localhost:3001/issues", {
+        const response = await axios.post(`${BASE_URL}/issues`, {
           title,
           description,
         });
