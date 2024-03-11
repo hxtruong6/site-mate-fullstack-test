@@ -1,8 +1,11 @@
 # Issue Tracking System
 
-<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/664f1a7f-4d09-494d-8a74-f4254ea66d78" alt="drawing" style="width:600px;"/>
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/664f1a7f-4d09-494d-8a74-f4254ea66d78" alt="drawing" style="width:500px;"/>
 
 A simple issue tracking system built with React.js, TypeScript, and Axios.
+
+**Update with notifcation**
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/e48e5ba3-29d4-4751-8a0a-4e34d79cf064" alt="drawing" style="width:500px;"/>
 
 ## Description
 

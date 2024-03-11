@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import "./IssueForm.css";
 import { Issue } from "../utilities/types";
 
@@ -25,6 +26,8 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
           title,
           description,
         });
+
+        toast.success("Issue updated successfully");
       } else {
         const response = await axios.post("http://localhost:3001/issues", {
           title,
@@ -35,6 +38,8 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
         // Reset form fields
         setTitle("");
         setDescription("");
+
+        toast.success("Issue created successfully");
       }
 
       props.setToggleRender(!props.toggleRender);
@@ -42,6 +47,7 @@ const IssueForm: React.FC<IssueFormProps> = (props) => {
     } catch (error) {
       console.error("Error creating issue:", error);
       // Handle the error appropriately (e.g., display an error message)
+      toast.error("Error creating issue");
     }
   };
 

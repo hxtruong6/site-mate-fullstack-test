@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import IssueForm from "./components/IssueForm";
 import IssueList from "./components/IssueList";
 import { Issue } from "./utilities/types";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
+import "react-toastify/dist/ReactToastify.css"; // Import CSS
 
 const App: React.FC = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
@@ -41,6 +43,8 @@ const App: React.FC = () => {
         currentIssue={currentIssue}
         setCurrentIssue={setCurrentIssue_}
       />
+
+      <ToastContainer />
     </div>
   );
 };

@@ -1,8 +1,9 @@
 # Site-Mate Fullstack Test
-
+ >
+ > SiteMate Fullstack exercise - Interview Round 2
 **Description**
 
-This project provides a user-friendly interface for managing issues within a project or team.
+This project implements a basic issue-tracking application, simulating core functionalities found in platforms like GitHub or Jira.  It demonstrates the use of a REST API server and a client interface, enabling users to manage issues within a streamlined workflow.
 
 **Key Features**
 
@@ -13,11 +14,11 @@ This project provides a user-friendly interface for managing issues within a pro
 
 **Frontend:**
 
-<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/bca6ab50-8344-490f-b930-bba7b54f7032" alt="drawing" style="width:400px;"/>
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/bca6ab50-8344-490f-b930-bba7b54f7032" alt="drawing" style="width:500px;"/>
 
 **Backend:**
 
-<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/00d944d4-e8ee-45c5-a018-662be981ec72" alt="drawing" style="width:400px;"/>
+<img src="https://github.com/hxtruong6/site-mate-fullstack-test/assets/24609363/00d944d4-e8ee-45c5-a018-662be981ec72" alt="drawing" style="width:500px;"/>
 
 **Technologies Used**
 
@@ -50,5 +51,3 @@ This project provides a user-friendly interface for managing issues within a pro
 **License**
 
 **Contributing**
-
-[If open to contributions, provide guidelines]

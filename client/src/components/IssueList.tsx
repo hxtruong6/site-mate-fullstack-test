@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import "./IssueList.css";
 
 interface Issue {
@@ -25,6 +26,7 @@ const IssueList: React.FC<IssueListProps> = (props) => {
         setIssues(result.data.data);
       } catch (error) {
         console.error("Error fetching issues:", error);
+        toast.error("Error fetching issues");
       }
     };
 
@@ -36,8 +38,10 @@ const IssueList: React.FC<IssueListProps> = (props) => {
       await axios.delete(`http://localhost:3001/issues/${issueId}`);
       // Update issues state to remove the deleted issue
       setIssues(issues.filter((issue: Issue) => issue.id !== issueId));
+      toast.success("Issue deleted successfully");
     } catch (error) {
       console.error("Error deleting issue:", error);
+      toast.error("Error deleting issue");
     }
   };
 
