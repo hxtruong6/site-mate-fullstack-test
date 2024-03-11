@@ -2,8 +2,18 @@
     "version": 2,
     "builds": [
         {
-            "src": "server/dist/app.js",
-            "use": "@vercel/node"
+            "src": "client/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "command": "pnpm run build"
+            }
+        },
+        {
+            "src": "server/package.json",
+            "use": "@vercel/node",
+            "config": {
+                "command": "pnpm run build"
+            }
         }
     ],
     "routes": [
