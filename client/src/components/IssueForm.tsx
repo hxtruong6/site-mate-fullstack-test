@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 interface IssueFormProps {
-  // Add props for editing if needed (e.g., onUpdate: (issue: Issue) => void)
+  toggleRender: boolean;
+  setToggleRender: (value: boolean) => void;
 }
 
-const IssueForm: React.FC<IssueFormProps> = () => {
+const IssueForm: React.FC<IssueFormProps> = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -19,6 +20,7 @@ const IssueForm: React.FC<IssueFormProps> = () => {
       });
 
       console.log("Issue created:", response.data);
+      props.setToggleRender(!props.toggleRender);
       // Ideally, reset form fields and refresh the IssueList here
     } catch (error) {
       console.error("Error creating issue:", error);

@@ -4,6 +4,7 @@ import IssueList from "./components/IssueList";
 
 const App: React.FC = () => {
   const [showForm, setShowForm] = useState<boolean>(false);
+  const [toggleRender, setToggleRender] = useState<boolean>(false);
 
   const toggleForm = () => {
     setShowForm(!showForm);
@@ -17,9 +18,14 @@ const App: React.FC = () => {
         {showForm ? "Hide Form" : "Add New Issue"}
       </button>
 
-      {showForm && <IssueForm />}
+      {showForm && (
+        <IssueForm
+          setToggleRender={setToggleRender}
+          toggleRender={toggleRender}
+        />
+      )}
 
-      <IssueList />
+      <IssueList toggleRender={toggleRender} />
     </div>
   );
 };

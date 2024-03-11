@@ -9,30 +9,37 @@ interface Issue {
 
 interface IssueListProps {
   // issues: Issue[];
+  toggleRender: boolean;
 }
 
-const IssueList: React.FC<IssueListProps> = () => {
+const IssueList: React.FC<IssueListProps> = (props) => {
   const [issues, setIssues] = useState([]);
 
   useEffect(() => {
     const fetchIssues = async () => {
-      const result = await axios.get("http://localhost:3001/issues"); // Replace with your server URL
-      setIssues(result.data);
+      try {
+        const result = await axios.get("http://localhost:3001/issues"); // Replace with your server URL
+        setIssues(result.data.data);
+      } catch (error) {
+        console.error("Error fetching issues:", error);
+      }
     };
 
     fetchIssues();
-  }, []);
+  }, [props.toggleRender]);
 
   return (
     <div>
       <h2>Issue List</h2>
-      <ul>
-        {issues.map((issue: any) => (
-          <li key={issue.id}>
-            {issue.title} - {issue.description}
-          </li>
-        ))}
-      </ul>
+      {issues?.length > 0 && (
+        <ul>
+          {issues.map((issue: any) => (
+            <li key={issue.id}>
+              {issue.title} - {issue.description}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
